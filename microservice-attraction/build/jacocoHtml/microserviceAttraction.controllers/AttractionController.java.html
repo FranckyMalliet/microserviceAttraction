@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AttractionController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">microserviceAttraction</a> &gt; <a href="index.source.html" class="el_package">microserviceAttraction.controllers</a> &gt; <span class="el_source">AttractionController.java</span></div><h1>AttractionController.java</h1><pre class="source lang-java linenums">package microserviceAttraction.controllers;
+
+import microserviceAttraction.models.Attraction;
+import microserviceAttraction.services.AttractionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+public class AttractionController {
+
+<span class="fc" id="L14">    private final static Logger logger = LoggerFactory.getLogger(AttractionController.class);</span>
+    private AttractionService attractionService;
+
+<span class="fc" id="L17">    public AttractionController(AttractionService attractionService){</span>
+<span class="fc" id="L18">        this.attractionService = attractionService;</span>
+<span class="fc" id="L19">    }</span>
+
+    @GetMapping(value = &quot;/attractionIndex&quot;)
+    public String index() {
+<span class="nc" id="L23">        return &quot;Greetings from microservice Attraction !&quot;;</span>
+    }
+
+    @GetMapping(value = &quot;/createAttractions&quot;)
+    public List&lt;Attraction&gt; createAttractions(){
+<span class="nc" id="L28">        logger.debug(&quot;Retrieving list of attractions&quot;);</span>
+<span class="nc" id="L29">        return attractionService.createAttractions();</span>
+    }
+
+    @GetMapping(value = &quot;/fiveClosestTouristAttractions&quot;)
+    public List&lt;List&lt;String&gt;&gt; fiveClosestTouristAttractions(@RequestParam(&quot;latitude&quot;) double latitude,
+                                                            @RequestParam(&quot;longitude&quot;) double longitude){
+<span class="nc" id="L35">        logger.debug(&quot;Retrieving five nearby attractions&quot;);</span>
+<span class="nc" id="L36">        return attractionService.findFiveClosestTouristAttractions(latitude, longitude);</span>
+    }
+
+    @GetMapping(value = &quot;/createAttractionRewardPoints&quot;)
+    public int createAttractionRewardPoints(){
+<span class="nc" id="L41">        return attractionService.createAttractionRewardPoints();</span>
+    }
+
+    @GetMapping(value = &quot;/isWithinAttractionProximity&quot;)
+    public boolean isWithinAttractionProximity(@RequestParam double attractionLatitude,
+                                               @RequestParam double attractionLongitude,
+                                               @RequestParam double locationLatitude,
+                                               @RequestParam double locationLongitude){
+<span class="nc" id="L49">        logger.debug(&quot;Checking if attraction is in proximity&quot;);</span>
+<span class="nc" id="L50">        return attractionService.isWithinAttractionProximity(attractionLatitude, attractionLongitude, locationLatitude, locationLongitude);</span>
+    }
+
+    @GetMapping(value = &quot;/newProximityBuffer&quot;)
+    public void newProximityBuffer(int proximityBuffer){
+<span class="nc" id="L55">        attractionService.setProximityBuffer(proximityBuffer);</span>
+<span class="nc" id="L56">    }</span>
+
+    @GetMapping(value = &quot;/defaultProximityBuffer&quot;)
+    public void defaultProximityBuffer(){
+<span class="nc" id="L60">        attractionService.setDefaultProximityBuffer();</span>
+<span class="nc" id="L61">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

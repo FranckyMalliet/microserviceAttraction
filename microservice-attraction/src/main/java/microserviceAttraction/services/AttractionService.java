@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,10 +16,8 @@ public class AttractionService {
 
     //proximity in miles
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
-    private int defaultProximityBuffer = 10;
-    private int proximityBuffer = defaultProximityBuffer;
-    //basic value = 200
-    private int attractionProximityRange = 1000;
+    private final int defaultAttractionProximityRange = 200;
+    private int attractionProximityRange = 10000;
 
     private final static Logger logger = LoggerFactory.getLogger(AttractionService.class);
     private static RateLimiter rateLimiter = RateLimiter.create(100000);
@@ -93,6 +90,8 @@ public class AttractionService {
         sleepUtilities.sleepLighter();
 
         int randomInt = ThreadLocalRandom.current().nextInt(1, 1000);
+
+        logger.debug("RandomInt = " + randomInt);
         return randomInt;
     }
 
@@ -107,19 +106,20 @@ public class AttractionService {
      */
 
     public boolean isWithinAttractionProximity(double attractionLatitude, double attractionLongitude, double locationLatitude, double locationLongitude) {
+        logger.debug("Actual attraction proximity range is " + attractionProximityRange);
         return getDistanceBetweenAttractionAndLocation(attractionLatitude, attractionLongitude, locationLatitude, locationLongitude) < attractionProximityRange;
     }
 
-    public int getProximityBuffer() {
-        return proximityBuffer;
+    public int getAttractionProximityRange() {
+        return attractionProximityRange;
     }
 
-    public void setProximityBuffer(int proximityBuffer) {
-        this.proximityBuffer = proximityBuffer;
+    public void setAttractionProximityRange(int proximityRange) {
+        this.attractionProximityRange = proximityRange;
     }
 
-    public void setDefaultProximityBuffer() {
-        proximityBuffer = defaultProximityBuffer;
+    public void setDefaultAttractionProximityRange() {
+        attractionProximityRange = defaultAttractionProximityRange;
     }
 
     /**

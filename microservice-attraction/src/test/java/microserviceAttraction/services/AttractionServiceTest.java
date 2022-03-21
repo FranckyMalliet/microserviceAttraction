@@ -27,12 +27,12 @@ public class AttractionServiceTest {
     public void findFiveClosestTouristAttractionsTest() {
         //GIVEN
         double latitude = 35;
-        double longitude = -110;
+        double longitude = -115;
         List<List<String>> attractionListInformation = attractionService.findFiveClosestTouristAttractions(latitude, longitude);
 
         //THEN
         Assertions.assertNotNull(attractionListInformation);
-        Assertions.assertEquals(5, attractionListInformation.size());
+        Assertions.assertEquals(attractionListInformation.size(), 5);
     }
 
     @Test
@@ -52,38 +52,39 @@ public class AttractionServiceTest {
         Attraction attraction = new Attraction("Tour Eiffel", "Paris", "France", 48.858370, 2.294481);
 
         //THEN
-        //Assertions.assertTrue(attractionService.isWithinAttractionProximity(attraction, specificPointLatitude, specificPointLongitude));
+        Assertions.assertTrue(attractionService.isWithinAttractionProximity(attraction.getLatitude(), attraction.getLongitude(), specificPointLatitude, specificPointLongitude));
     }
 
     @Test
-    public void getProximityBufferTest() {
+    public void getAttractionProximityRangeTest() {
         //GIVEN
-        int proximityBuffer = attractionService.getProximityBuffer();
+        attractionService.setAttractionProximityRange(10000);
+        int attractionProximityRange = attractionService.getAttractionProximityRange();
 
         //THEN
-        Assertions.assertEquals(proximityBuffer, 10);
-        Assertions.assertNotNull(proximityBuffer);
+        Assertions.assertEquals(attractionProximityRange, 10000);
+        Assertions.assertNotNull(attractionProximityRange);
     }
 
     @Test
-    public void setProximityBufferTest() {
+    public void setAttractionProximityRangeTest() {
         //GIVEN
-        int newProximityBuffer = 300;
+        int newAttractionProximityRange = 300;
 
         //WHEN
-        attractionService.setProximityBuffer(newProximityBuffer);
+        attractionService.setAttractionProximityRange(newAttractionProximityRange);
 
         //THEN
-        Assertions.assertEquals(attractionService.getProximityBuffer(), 300);
+        Assertions.assertEquals(attractionService.getAttractionProximityRange(), 300);
     }
 
     @Test
-    public void setDefaultProximityBufferTest() {
+    public void setDefaultAttractionProximityRangeTest() {
         //WHEN
-        attractionService.setDefaultProximityBuffer();
-        int proximityBuffer = attractionService.getProximityBuffer();
+        attractionService.setDefaultAttractionProximityRange();
+        int proximityBuffer = attractionService.getAttractionProximityRange();
 
         //THEN
-        Assertions.assertEquals(proximityBuffer, 10);
+        Assertions.assertEquals(proximityBuffer, 200);
     }
 }

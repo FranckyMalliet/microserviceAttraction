@@ -50,13 +50,18 @@ public class AttractionController {
         return attractionService.isWithinAttractionProximity(attractionLatitude, attractionLongitude, locationLatitude, locationLongitude);
     }
 
-    @GetMapping(value = "/newProximityBuffer")
-    public void newProximityBuffer(int proximityBuffer){
-        attractionService.setProximityBuffer(proximityBuffer);
+    @GetMapping(value = "/getAttractionProximityRange")
+    public int getAttractionProximityRange(){
+        return attractionService.getAttractionProximityRange();
     }
 
-    @GetMapping(value = "/defaultProximityBuffer")
-    public void defaultProximityBuffer(){
-        attractionService.setDefaultProximityBuffer();
+    @GetMapping(value = "/newAttractionProximityRange")
+    public void newAttractionProximityRange(int proximityRange){
+        attractionService.setAttractionProximityRange(proximityRange);
+    }
+
+    @GetMapping(value = "/defaultAttractionProximityRange")
+    public void defaultAttractionProximityRange(){
+        attractionService.setDefaultAttractionProximityRange();
     }
 }

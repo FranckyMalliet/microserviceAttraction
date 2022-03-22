@@ -56,7 +56,7 @@ public class AttractionController {
     }
 
     @GetMapping(value = "/newAttractionProximityRange")
-    public void newAttractionProximityRange(int proximityRange){
+    public void newAttractionProximityRange(@RequestParam int proximityRange){
         attractionService.setAttractionProximityRange(proximityRange);
     }
 

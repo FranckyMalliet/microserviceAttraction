@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.329s</div>
+<div class="counter">1.088s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,37 +79,37 @@
 </thead>
 <tr>
 <td class="success">createAttractionRewardPointsTest()</td>
-<td class="success">0.012s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createAttractionsTest()</td>
-<td class="success">0.025s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">findFiveClosestTouristAttractionsTest()</td>
-<td class="success">0.136s</td>
+<td class="success">0.130s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getAttractionProximityRangeTest()</td>
-<td class="success">0.008s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">isWithinAttractionProximityTest()</td>
-<td class="success">0.006s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setAttractionProximityRangeTest()</td>
-<td class="success">0.007s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setDefaultAttractionProximityRangeTest()</td>
-<td class="success">1.135s</td>
+<td class="success">0.915s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,23 +117,23 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>11:54:18.113 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-11:54:18.161 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-11:54:18.288 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [microserviceAttraction.services.AttractionServiceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-11:54:18.331 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [microserviceAttraction.services.AttractionServiceTest], using SpringBootContextLoader
-11:54:18.352 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [microserviceAttraction.services.AttractionServiceTest]: class path resource [microserviceAttraction/services/AttractionServiceTest-context.xml] does not exist
-11:54:18.354 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [microserviceAttraction.services.AttractionServiceTest]: class path resource [microserviceAttraction/services/AttractionServiceTestContext.groovy] does not exist
-11:54:18.355 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [microserviceAttraction.services.AttractionServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-11:54:18.358 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [microserviceAttraction.services.AttractionServiceTest]: AttractionServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:54:18.539 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [microserviceAttraction.services.AttractionServiceTest]
-11:54:18.777 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [E:\Users\Francky Malliet\git\microserviceAttraction\microserviceAttraction\microservice-attraction\build\classes\java\main\microserviceAttraction\MicroserviceAttractionApplication.class]
-11:54:18.780 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration microserviceAttraction.MicroserviceAttractionApplication for test class microserviceAttraction.services.AttractionServiceTest
-11:54:19.136 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [microserviceAttraction.services.AttractionServiceTest]: using defaults.
-11:54:19.137 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-11:54:19.177 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-11:54:19.179 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-11:54:19.180 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4730a321, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2e7b031e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@71a3c10b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@51002c88, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@13ebb422, org.springframework.test.context.support.DirtiesContextTestExecutionListener@657e26b2, org.springframework.test.context.event.EventPublishingTestExecutionListener@a3a088f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5a8e012c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@148af4fb, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@d51b6e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5a71058b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@705ce888, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@33b2f754]
-11:54:19.192 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@b8c6c09 testClass = AttractionServiceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@7009c127 testClass = AttractionServiceTest, locations = '{}', classes = '{class microserviceAttraction.MicroserviceAttractionApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@715a6fc9, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@590e5174, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2650f0a6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4b00c9f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3818b5b5, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@47129eed], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+<pre>10:36:35.655 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+10:36:35.692 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+10:36:35.794 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [microserviceAttraction.services.AttractionServiceTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+10:36:35.824 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [microserviceAttraction.services.AttractionServiceTest], using SpringBootContextLoader
+10:36:35.833 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [microserviceAttraction.services.AttractionServiceTest]: class path resource [microserviceAttraction/services/AttractionServiceTest-context.xml] does not exist
+10:36:35.834 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [microserviceAttraction.services.AttractionServiceTest]: class path resource [microserviceAttraction/services/AttractionServiceTestContext.groovy] does not exist
+10:36:35.835 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [microserviceAttraction.services.AttractionServiceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+10:36:35.837 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [microserviceAttraction.services.AttractionServiceTest]: AttractionServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:36:35.938 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [microserviceAttraction.services.AttractionServiceTest]
+10:36:36.097 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [E:\Users\Francky Malliet\git\microserviceAttraction\microserviceAttraction\microservice-attraction\build\classes\java\main\microserviceAttraction\MicroserviceAttractionApplication.class]
+10:36:36.099 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration microserviceAttraction.MicroserviceAttractionApplication for test class microserviceAttraction.services.AttractionServiceTest
+10:36:36.514 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [microserviceAttraction.services.AttractionServiceTest]: using defaults.
+10:36:36.516 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+10:36:36.567 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+10:36:36.569 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+10:36:36.570 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7107a288, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5b21894a, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@9ea52d1, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3273f800, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7eac0f24, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2910a262, org.springframework.test.context.event.EventPublishingTestExecutionListener@72b7014b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5fa954e5, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@41e2a51b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6d4d0cf7, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@27bae54c, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@32a19322, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@66bf2210]
+10:36:36.583 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@127f48c3 testClass = AttractionServiceTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@45f351c5 testClass = AttractionServiceTest, locations = '{}', classes = '{class microserviceAttraction.MicroserviceAttractionApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6c37fa0d, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1df3d09, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@53e7f581, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@44333cd5, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2a7e6137, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@3b69cdba], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -143,10 +143,10 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v2.6.3)
 
-2022-03-21 11:54:20.220  INFO 19832 --- [    Test worker] m.services.AttractionServiceTest         : Starting AttractionServiceTest using Java 16.0.1 on F_WarMachine with PID 19832 (started by Francky Malliet in E:\Users\Francky Malliet\git\microserviceAttraction\microserviceAttraction\microservice-attraction)
-2022-03-21 11:54:20.223  INFO 19832 --- [    Test worker] m.services.AttractionServiceTest         : No active profile set, falling back to default profiles: default
-2022-03-21 11:54:24.698  INFO 19832 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2022-03-21 11:54:24.804  INFO 19832 --- [    Test worker] m.services.AttractionServiceTest         : Started AttractionServiceTest in 5.474 seconds (JVM running for 9.166)
+2022-03-22 10:36:37.578  INFO 10956 --- [    Test worker] m.services.AttractionServiceTest         : Starting AttractionServiceTest using Java 16.0.1 on F_WarMachine with PID 10956 (started by Francky Malliet in E:\Users\Francky Malliet\git\microserviceAttraction\microserviceAttraction\microservice-attraction)
+2022-03-22 10:36:37.582  INFO 10956 --- [    Test worker] m.services.AttractionServiceTest         : No active profile set, falling back to default profiles: default
+2022-03-22 10:36:42.102  INFO 10956 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-03-22 10:36:42.178  INFO 10956 --- [    Test worker] m.services.AttractionServiceTest         : Started AttractionServiceTest in 5.474 seconds (JVM running for 8.635)
 </pre>
 </span>
 </div>
@@ -158,7 +158,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.1</a> at 21 mars 2022, 11:54:26</p>
+<a href="http://www.gradle.org">Gradle 7.1</a> at 22 mars 2022, 10:36:44</p>
 </div>
 </div>
 </body>

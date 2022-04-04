@@ -15,9 +15,9 @@ public class AttractionServiceTest {
     private AttractionService attractionService;
 
     @Test
-    public void createAttractionsTest () {
+    public void findAllTest () {
         //GIVEN
-        List<Attraction> attractionList = attractionService.createAttractions();
+        List<Attraction> attractionList = attractionService.findAll();
 
         //THEN
         Assertions.assertNotNull(attractionList);

@@ -23,10 +23,10 @@ public class AttractionController {
         return "Greetings from microservice Attraction !";
     }
 
-    @GetMapping(value = "/createAttractions")
-    public List<Attraction> createAttractions(){
+    @GetMapping(value = "/Attractions")
+    public List<Attraction> getAttractions(){
         logger.debug("Retrieving list of attractions");
-        return attractionService.createAttractions();
+        return attractionService.findAll();
     }
 
     @GetMapping(value = "/fiveClosestTouristAttractions")

@@ -1,8 +1,6 @@
 package microserviceAttraction.services;
 
-import com.google.common.util.concurrent.RateLimiter;
 import microserviceAttraction.models.Attraction;
-import microserviceAttraction.utilities.SleepUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,11 +15,9 @@ public class AttractionService {
     //proximity in miles
     private static final double STATUTE_MILES_PER_NAUTICAL_MILE = 1.15077945;
     private final int defaultAttractionProximityRange = 200;
-    private int attractionProximityRange = 10000;
+    private int attractionProximityRange = 5000;
 
     private final static Logger logger = LoggerFactory.getLogger(AttractionService.class);
-    private static RateLimiter rateLimiter = RateLimiter.create(100000);
-    private final SleepUtilities sleepUtilities = new SleepUtilities();
 
     private List<Attraction> attractions = createAttractions();
 
@@ -53,27 +49,10 @@ public class AttractionService {
      */
 
     public int createAttractionRewardPoints() {
-        sleepUtilities.sleepLighter();
-
         int randomInt = ThreadLocalRandom.current().nextInt(1, 1000);
 
         logger.debug("RandomInt = " + randomInt);
         return randomInt;
-    }
-
-    /**
-     * This method verify if the distance between attraction and a location is inferior
-     * to the attraction proximity range
-     * @param attractionLatitude
-     * @param attractionLongitude
-     * @param locationLatitude
-     * @param locationLongitude
-     * @return a boolean
-     */
-
-    public boolean isWithinAttractionProximity(double attractionLatitude, double attractionLongitude, double locationLatitude, double locationLongitude) {
-        logger.debug("Actual attraction proximity range is " + attractionProximityRange);
-        return getDistanceBetweenAttractionAndLocation(attractionLatitude, attractionLongitude, locationLatitude, locationLongitude) < attractionProximityRange;
     }
 
     public int getAttractionProximityRange() {
@@ -91,7 +70,7 @@ public class AttractionService {
     /**
      * Given an attraction and a location with their own latitude and longitude,
      * this method calculate the angle using these attributes. After that,
-     * it translate the result into miles.
+     * it translates the result into miles.
      * @param attractionLatitude
      * @param attractionLongitude
      * @param locationLatitude
@@ -99,18 +78,14 @@ public class AttractionService {
      * @return a distance in miles
      */
 
-    private double getDistanceBetweenAttractionAndLocation(double attractionLatitude, double attractionLongitude, double locationLatitude, double locationLongitude) {
+    public double getDistanceBetweenAttractionAndLocation(double attractionLatitude, double attractionLongitude, double locationLatitude, double locationLongitude) {
 
-        double mathAttractionLatitude = Math.toRadians(attractionLatitude);
-        double mathAttractionLongitude = Math.toRadians(attractionLongitude);
-        double mathLocationLatitude = Math.toRadians(locationLatitude);
-        double mathLocationLongitude = Math.toRadians(locationLongitude);
-
-        double angle = Math.acos(Math.sin(mathAttractionLatitude) * Math.sin(mathLocationLatitude)
-                + Math.cos(mathAttractionLatitude) * Math.cos(mathLocationLatitude) * Math.cos(mathAttractionLongitude - mathLocationLongitude));
+        double angle = Math.acos(Math.sin(attractionLatitude) * Math.sin(locationLatitude)
+                + Math.cos(attractionLatitude) * Math.cos(locationLatitude) * Math.cos(attractionLongitude - locationLongitude));
+        System.out.println("angle : " + angle);
 
         double nauticalMiles = 60 * Math.toDegrees(angle);
-        double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;
+        double statuteMiles = nauticalMiles * STATUTE_MILES_PER_NAUTICAL_MILE;
         return statuteMiles;
     }
 
@@ -158,17 +133,18 @@ public class AttractionService {
 
     private List<Attraction> findFiveNearByAttractions(double latitude, double longitude) {
         List<Attraction> nearbyAttractions = new ArrayList<>();
-        for(Attraction attraction : findAll()) {
-            if(isWithinAttractionProximity(attraction.getLatitude(),attraction.getLongitude(), latitude, longitude) & nearbyAttractions.size() < 5) {
+        attractions.forEach(attraction -> {
+            if(getDistanceBetweenAttractionAndLocation(attraction.getLatitudeToRadian(),attraction.getLongitudeToRadian(), latitude, longitude) <= attractionProximityRange
+                    & nearbyAttractions.size() < 5) {
                 nearbyAttractions.add(attraction);
             }
-        }
+        });
 
-        for(Attraction attraction : findAll()){
-            if(!findAll().stream().toList().contains(attraction.getAttractionName()) & nearbyAttractions.size() < 5){
+        attractions.forEach(attraction -> {
+            if(!attractions.stream().toList().contains(attraction.getAttractionName()) & nearbyAttractions.size() < 5){
                 nearbyAttractions.add(attraction);
             }
-        }
+        });
 
         return nearbyAttractions;
     }
@@ -180,8 +156,6 @@ public class AttractionService {
      */
 
     private List<Attraction> createAttractions() {
-        rateLimiter.acquire();
-        this.sleepUtilities.sleepLighter();
         List<Attraction> attractions = new ArrayList<>();
         attractions.add(new Attraction("Disneyland", "Anaheim", "CA", 33.817595D, -117.922008D));
         attractions.add(new Attraction("Jackson Hole", "Jackson Hole", "WY", 43.582767D, -110.821999D));

@@ -9,14 +9,14 @@ public class Attraction{
     private String state;
     private UUID attractionId;
     private double latitude;
+    private double latitudeToRadian;
     private double longitude;
+    private double longitudeToRadian;
 
-<span class="fc" id="L14">    public Attraction(String attractionName, String city, String state, double latitude, double longitude) {</span>
-<span class="fc" id="L15">        Objects.requireNonNull(attractionName);</span>
-<span class="fc" id="L16">        Objects.requireNonNull(city);</span>
-<span class="fc" id="L17">        Objects.requireNonNull(state);</span>
-<span class="fc" id="L18">        Objects.requireNonNull(latitude);</span>
-<span class="fc" id="L19">        Objects.requireNonNull(longitude);</span>
+<span class="fc" id="L16">    public Attraction(String attractionName, String city, String state, double latitude, double longitude) {</span>
+<span class="fc" id="L17">        Objects.requireNonNull(attractionName);</span>
+<span class="fc" id="L18">        Objects.requireNonNull(city);</span>
+<span class="fc" id="L19">        Objects.requireNonNull(state);</span>
 
 <span class="fc" id="L21">        this.attractionName = attractionName;</span>
 <span class="fc" id="L22">        this.city = city;</span>
@@ -24,54 +24,73 @@ public class Attraction{
 <span class="fc" id="L24">        this.attractionId = UUID.randomUUID();</span>
 <span class="fc" id="L25">        this.latitude = latitude;</span>
 <span class="fc" id="L26">        this.longitude = longitude;</span>
-<span class="fc" id="L27">    }</span>
+
+<span class="fc" id="L28">        latitudeToRadian = Math.toRadians(latitude);</span>
+<span class="fc" id="L29">        longitudeToRadian = Math.toRadians(longitude);</span>
+<span class="fc" id="L30">    }</span>
 
     public String getAttractionName() {
-<span class="fc" id="L30">        return attractionName;</span>
+<span class="fc" id="L33">        return attractionName;</span>
     }
 
     public void setAttractionName(String attractionName) {
-<span class="nc" id="L34">        this.attractionName = attractionName;</span>
-<span class="nc" id="L35">    }</span>
+<span class="nc" id="L37">        this.attractionName = attractionName;</span>
+<span class="nc" id="L38">    }</span>
 
     public String getCity() {
-<span class="nc" id="L38">        return city;</span>
+<span class="nc" id="L41">        return city;</span>
     }
 
     public void setCity(String city) {
-<span class="nc" id="L42">        this.city = city;</span>
-<span class="nc" id="L43">    }</span>
+<span class="nc" id="L45">        this.city = city;</span>
+<span class="nc" id="L46">    }</span>
 
     public String getState() {
-<span class="nc" id="L46">        return state;</span>
+<span class="nc" id="L49">        return state;</span>
     }
 
     public void setState(String state) {
-<span class="nc" id="L50">        this.state = state;</span>
-<span class="nc" id="L51">    }</span>
+<span class="nc" id="L53">        this.state = state;</span>
+<span class="nc" id="L54">    }</span>
 
     public UUID getAttractionId() {
-<span class="nc" id="L54">        return attractionId;</span>
+<span class="nc" id="L57">        return attractionId;</span>
     }
 
     public void setAttractionId(UUID attractionId) {
-<span class="nc" id="L58">        this.attractionId = attractionId;</span>
-<span class="nc" id="L59">    }</span>
+<span class="nc" id="L61">        this.attractionId = attractionId;</span>
+<span class="nc" id="L62">    }</span>
 
     public double getLatitude() {
-<span class="fc" id="L62">        return latitude;</span>
+<span class="fc" id="L65">        return latitude;</span>
     }
 
     public void setLatitude(double latitude) {
-<span class="nc" id="L66">        this.latitude = latitude;</span>
-<span class="nc" id="L67">    }</span>
+<span class="nc" id="L69">        this.latitude = latitude;</span>
+<span class="nc" id="L70">    }</span>
 
     public double getLongitude() {
-<span class="fc" id="L70">        return longitude;</span>
+<span class="fc" id="L73">        return longitude;</span>
     }
 
     public void setLongitude(double longitude) {
-<span class="nc" id="L74">        this.longitude = longitude;</span>
-<span class="nc" id="L75">    }</span>
+<span class="nc" id="L77">        this.longitude = longitude;</span>
+<span class="nc" id="L78">    }</span>
+
+    public double getLatitudeToRadian() {
+<span class="fc" id="L81">        return latitudeToRadian;</span>
+    }
+
+    public void setLatitudeToRadian(double latitudeToRadian) {
+<span class="nc" id="L85">        this.latitudeToRadian = latitudeToRadian;</span>
+<span class="nc" id="L86">    }</span>
+
+    public double getLongitudeToRadian() {
+<span class="fc" id="L89">        return longitudeToRadian;</span>
+    }
+
+    public void setLongitudeToRadian(double longitudeToRadian) {
+<span class="nc" id="L93">        this.longitudeToRadian = longitudeToRadian;</span>
+<span class="nc" id="L94">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

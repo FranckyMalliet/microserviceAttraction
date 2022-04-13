@@ -18,11 +18,6 @@ public class AttractionController {
         this.attractionService = attractionService;
     }
 
-    @GetMapping(value = "/attractionIndex")
-    public String index() {
-        return "Greetings from microservice Attraction !";
-    }
-
     @GetMapping(value = "/Attractions")
     public List<Attraction> getAttractions(){
         logger.debug("Retrieving list of attractions");
@@ -39,15 +34,6 @@ public class AttractionController {
     @GetMapping(value = "/createAttractionRewardPoints")
     public int createAttractionRewardPoints(){
         return attractionService.createAttractionRewardPoints();
-    }
-
-    @GetMapping(value = "/isWithinAttractionProximity")
-    public boolean isWithinAttractionProximity(@RequestParam double attractionLatitude,
-                                               @RequestParam double attractionLongitude,
-                                               @RequestParam double locationLatitude,
-                                               @RequestParam double locationLongitude){
-        logger.debug("Checking if attraction is in proximity");
-        return attractionService.isWithinAttractionProximity(attractionLatitude, attractionLongitude, locationLatitude, locationLongitude);
     }
 
     @GetMapping(value = "/getAttractionProximityRange")

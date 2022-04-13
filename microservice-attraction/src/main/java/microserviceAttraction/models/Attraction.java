@@ -9,14 +9,14 @@ public class Attraction{
     private String state;
     private UUID attractionId;
     private double latitude;
+    private double latitudeToRadian;
     private double longitude;
+    private double longitudeToRadian;
 
     public Attraction(String attractionName, String city, String state, double latitude, double longitude) {
         Objects.requireNonNull(attractionName);
         Objects.requireNonNull(city);
         Objects.requireNonNull(state);
-        Objects.requireNonNull(latitude);
-        Objects.requireNonNull(longitude);
 
         this.attractionName = attractionName;
         this.city = city;
@@ -24,6 +24,9 @@ public class Attraction{
         this.attractionId = UUID.randomUUID();
         this.latitude = latitude;
         this.longitude = longitude;
+
+        latitudeToRadian = Math.toRadians(latitude);
+        longitudeToRadian = Math.toRadians(longitude);
     }
 
     public String getAttractionName() {
@@ -72,5 +75,21 @@ public class Attraction{
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public double getLatitudeToRadian() {
+        return latitudeToRadian;
+    }
+
+    public void setLatitudeToRadian(double latitudeToRadian) {
+        this.latitudeToRadian = latitudeToRadian;
+    }
+
+    public double getLongitudeToRadian() {
+        return longitudeToRadian;
+    }
+
+    public void setLongitudeToRadian(double longitudeToRadian) {
+        this.longitudeToRadian = longitudeToRadian;
     }
 }

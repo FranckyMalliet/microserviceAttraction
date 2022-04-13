@@ -45,17 +45,6 @@ public class AttractionServiceTest {
     }
 
     @Test
-    public void isWithinAttractionProximityTest() {
-        //GIVEN
-        double specificPointLatitude = 50;
-        double specificPointLongitude = 5;
-        Attraction attraction = new Attraction("Tour Eiffel", "Paris", "France", 48.858370, 2.294481);
-
-        //THEN
-        Assertions.assertTrue(attractionService.isWithinAttractionProximity(attraction.getLatitude(), attraction.getLongitude(), specificPointLatitude, specificPointLongitude));
-    }
-
-    @Test
     public void getAttractionProximityRangeTest() {
         //GIVEN
         attractionService.setAttractionProximityRange(10000);

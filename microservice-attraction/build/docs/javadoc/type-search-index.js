@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"microserviceAttraction.models","l":"Attraction"},{"p":"microserviceAttraction.controllers","l":"AttractionController"},{"p":"microserviceAttraction.services","l":"AttractionService"},{"p":"microserviceAttraction","l":"MicroserviceAttractionApplication"}];updateSearchResults();

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"microserviceAttraction"},{"l":"microserviceAttraction.controllers"},{"l":"microserviceAttraction.models"},{"l":"microserviceAttraction.services"}];updateSearchResults();
